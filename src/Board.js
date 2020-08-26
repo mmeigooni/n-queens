@@ -83,8 +83,9 @@
 
     hasColConflictAt: function(colIndex) {
       let count = 0;
+      debugger;
       for (var i = 0; i < this.get('n'); i++) {
-        if (this.rows()[i][colIndex] === 1) {
+        if (this.get(i)[colIndex]) {
           count++;
         }
       }
@@ -107,11 +108,39 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      let count = 0;
+      let rowIndex = 0; //???????????????????????
+      let colIndex = majorDiagonalColumnIndexAtFirstRow;
+      while (rowIndex < this.attributes.n) {
+        if (this.get(rowIndex)[colIndex]) {
+          count++;
+          rowIndex++;
+          colIndex++;
+        }
+      }
+
+      return count > 1;
     },
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
+      let rowIndex = 0;
+      debugger;
+      for (let colIndex = 0; colIndex < this.get('n') - 1; colIndex++) {
+        if (this.hasMajorDiagonalConflictAt(colIndex)) {
+          return true;
+        }
+      }
+
+
+      //loop colIndex from 0 to n-1
+
+
+
+      //iterate through rows
+      //check to see if there's a major diag conflict on any of the rows.
+      //if so, return true
+
       return false; // fixme
     },
 
