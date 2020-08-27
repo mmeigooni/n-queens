@@ -17,7 +17,11 @@
 
 window.findNRooksSolution = function(n) {
   var solution = undefined; //fixme
-
+//var board = new Board({n: n});
+  //start at a1--> toggle
+  //for loop over the rows
+    //for loop over the items in that row.
+      //if doesn't have a row conflict or col conflict at that spot, toggle that spot
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
 };
